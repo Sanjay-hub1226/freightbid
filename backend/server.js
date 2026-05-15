@@ -56,9 +56,13 @@ app.get('/api/health', async (req, res) => {
 if (process.env.NODE_ENV === 'production') {
   const build = path.join(__dirname, '..', 'frontend', 'build');
   app.use(express.static(build));
-  app.get('*', (req, res) => {
-    if (!req.path.startsWith('/api')) res.sendFile(path.join(build, 'index.html'));
+app.get('/', (req, res) => {
+  res.json({ 
+    status: "Active", 
+    project: "FreightBid API", 
+    timestamp: new Date().toISOString() 
   });
+});
 }
 
 require('./socket')(server, db, redis);
