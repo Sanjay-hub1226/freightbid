@@ -70,5 +70,5 @@ app.use((err, req, res, next) => {
 });
 
 const PORT = process.env.PORT || 4000;
-server.listen(PORT, () => console.log(`\n🚛 FreightBid API → http://localhost:${PORT}\n`));
+server.listen(PORT, '0.0.0.0', () => console.log(`\n🚀 FreightBid API -> http://localhost:${PORT}\n`));
 module.exports = { app, server, db };
